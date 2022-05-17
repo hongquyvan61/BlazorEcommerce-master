@@ -1,0 +1,87 @@
+﻿@page "/Product/{id:int}"
+@using BlazorEcommerce.Shared.Models
+@inject IProductService _productService
+@inject ICartService _cartService
+
+@if (_product is null)
+{
+    <span>@_message</span>
+}
+else
+{
+    <div class="media ms-4">
+        <div class="media-img-wrapper mb-4">
+            <img class="media-img rounded" src="@_product.ImageUrl" alt="@_product.Title"/>
+        </div>
+        <div class="media-body-detail">
+            <h2 class="mb-2 fw-bold">@_product.Title</h2>
+            <p class="product-desc">@_product.Description</p>
+            @if (_product.Variants.Count > 1)
+            {
+                <div class="mb-3">
+                    <span>Size:</span>
+                    <select class="form-select" @bind="_currentTypeId">
+                        @foreach (var variant in _product.Variants)
+                        {
+                            <option value="@variant.ProductTypeId">@variant.ProductType.Name</option>
+                        }
+                    </select>
+                </div>
+            }
+                @if (GetSelectedProductVariant().OriginalPrice > GetSelectedProductVariant().Price)
+                {
+                    <h6 class="text-muted original-price">
+                        @GetSelectedProductVariant().OriginalPrice@_currency
+                    </h6>
+                }
+            <h4 class="price">@GetSelectedProductVariant().Price@_currency</h4>
+            <button class="btn btn-success cart-button" @onclick="AddToCart">
+                <i class="oi oi-cart cart-button-text">&nbsp;&nbsp;&nbsp;Add to cart</i>
+            </button>
+        </div>
+    </div>
+}
+
+@code {
+    string _currency = "đ";
+    string? _message;
+    private Product? _product;
+    private int _currentTypeId = 1;
+
+    [Parameter]
+    public int Id { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        _message = "Loading Product...";
+
+        var result = await _productService.GetSingleProduct(Id);
+        if (!result.Success)
+        {
+            _message = result.Message;
+        }
+        _product = result.Data;
+        if (_product.Variants.Count > 0)
+        {
+            _currentTypeId = _product.Variants[0].ProductTypeId;
+        }
+    }
+
+    private ProductVariant GetSelectedProductVariant()
+    {
+        var variant = _product.Variants.FirstOrDefault(v => v.ProductTypeId == _currentTypeId);
+        return variant;
+    }
+
+    private async Task AddToCart()
+    {
+        var productVariant = GetSelectedProductVariant();
+        var cartItem = new CartItem
+        {
+            ProductId = productVariant.ProductId,
+            ProductTypeId = productVariant.ProductTypeId
+        };
+
+        await _cartService.AddToCart(cartItem);
+    }
+}

@@ -1,0 +1,8 @@
+.cart-button[b-dqlwyr1b25] {
+    transition: transform .4s;
+    font-size: 18px;
+}
+
+.cart-button:hover[b-dqlwyr1b25] {
+    transform: scale(1.2) rotate(4deg);
+}

@@ -1,0 +1,9 @@
+.home-button[b-bhpobyacx5] {
+    margin-right: 10px;
+    margin-left: 10px;
+    transition: transform .4s;
+}
+
+.home-button:hover[b-bhpobyacx5] {
+    transform: scale(1.2) rotate(-4deg);
+}

@@ -1,0 +1,89 @@
+﻿@page "/cart"
+@using BlazorEcommerce.Shared.DTO
+@inject IOrderService _orderService
+@inject ICartService _cartService
+@inject IAuthService _authService
+@inject NavigationManager _navigationManager
+
+<PageTitle>Your Shopping Cart</PageTitle>
+<h3 class="text-center mb-4">Giỏ hàng</h3> 
+
+@if (_cartProduct.Count == 0)
+{
+    <h5 class="text-center mt-5 message">Your Cart is empty.</h5>
+}
+else
+{
+    <div>
+        @foreach (var product in _cartProduct)
+        {
+            <div class="container">
+                <div class="image-wrapper">
+                    <img src="@product.ImageUrl" class="image"/>
+                </div>
+                <div class="name">
+                    <h5><a href="/product/@product.ProductId">@product.Title</a></h5>
+                    <span>@product.ProductType</span><br/><br/>
+                    <input type="number" value="@product.Quantity" @onchange="@((ChangeEventArgs e) => UpdateQuantity(e, product))" class="form-control input-quantity" min="1"/>
+                    <button class="btn btn-danger" @onclick="@(() => RemoveProductFromCart(product.ProductId, product.ProductTypeId))">Delete</button>
+                </div>
+                <div class="cart-product-price">@(product.Price * product.Quantity)@_currency</div>
+            </div>
+            <hr/>
+        }
+        <div class="cart-product-price">
+            Total: @_cartProduct.Sum(product => @product.Price * product.Quantity)@_currency, (@_cartProduct.Count sản phẩm)
+        </div>
+    </div>
+    @if (_isAuthenticated)
+    {
+        <div class="m-4">
+            <h4>Địa chỉ giao hàng</h4>
+            <AddressForm />
+        </div>
+    }
+    <button @onclick="PlaceOrder" class="btn alert-success float-end mt-4">Thanh toán</button>
+}
+
+@code {
+    string _currency = "VNĐ";
+    List<CartProductResponseDTO> _cartProduct = new();
+    string _message = "Loading cart...";
+    bool _isAuthenticated = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _isAuthenticated = await _authService.IsUserAuthenticated();
+        await LoadCart();
+    }
+
+    private async Task RemoveProductFromCart(int productId, int productTypeId)
+    {
+        await _cartService.RemoveProductFromCart(productId, productTypeId);
+        await LoadCart();
+    }
+
+    private async Task LoadCart()
+    {
+        await _cartService.GetCartItemsCount();
+        _cartProduct = await _cartService.GetCartProducts();
+        if (_cartProduct.Count == 0)
+        {
+            _message = "Your cart is empty.";
+        }
+    }
+
+    private async Task UpdateQuantity(ChangeEventArgs e, CartProductResponseDTO product)
+    {
+        product.Quantity = int.Parse(e.Value.ToString());
+        if (product.Quantity < 1)
+            product.Quantity = 1;
+        await _cartService.UpdateQuantity(product);
+    }
+
+    private async Task PlaceOrder()
+    {
+        string url = await _orderService.PlaceOrder();
+        _navigationManager.NavigateTo(url);
+    }
+}

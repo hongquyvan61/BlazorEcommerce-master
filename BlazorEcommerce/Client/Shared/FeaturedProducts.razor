@@ -1,0 +1,52 @@
+﻿@inject IProductService _productService
+@implements IDisposable
+
+
+@if (_productService.Products.Count == 0)
+{
+    <span>@_productService.Message</span>
+}
+else
+{
+    <div class="container">
+        <div class="line row">
+            @foreach (var product in _productService.Products)
+            {
+                @if (product.Featured)
+                {
+                    <div class="col-lg-4 col-sm-4 box">
+                 
+                            <a href="Product/@product.Id">
+                                <img class="rounded mb-1" src="@product.ImageUrl"/>
+                            </a>
+                        <center>
+                            <h4><a href="Product/@product.Id">@product.Title</a></h4>
+                            @*@if (product.Variants.Count > 0)
+                            {
+                                <h5 class="price">
+                                    @product.Variants[0].Price@_currency
+                                </h5>
+                            }*@
+                            <p>Choose among the best available in the world.</p>
+                        </center>
+                        
+                    </div>
+                }
+            }
+        </div>
+    </div>
+}
+
+@code {
+    string _currency = "kr";
+
+    protected override void OnInitialized()
+    {
+        _productService.ProductsChanged += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        _productService.ProductsChanged -= StateHasChanged;
+    }
+}

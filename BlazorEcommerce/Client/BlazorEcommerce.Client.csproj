@@ -1,0 +1,129 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Services\NewFolder\**" />
+    <Compile Remove="Services\ProductService\NewFolder\**" />
+    <Content Remove="Services\NewFolder\**" />
+    <Content Remove="Services\ProductService\NewFolder\**" />
+    <EmbeddedResource Remove="Services\NewFolder\**" />
+    <EmbeddedResource Remove="Services\ProductService\NewFolder\**" />
+    <None Remove="Services\NewFolder\**" />
+    <None Remove="Services\ProductService\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\img\adidas\1e0df7dd4fc6cee15a8a1c898f7b80f3.png" />
+    <None Include="wwwroot\img\adidas\64454936_p0_master1200.jpg" />
+    <None Include="wwwroot\img\adidas\68296699_p0.png" />
+    <None Include="wwwroot\img\adidas\75051139_p0_master1200.jpg" />
+    <None Include="wwwroot\img\adidas\88544119_p0.png" />
+    <None Include="wwwroot\img\adidas\bravada.jpg" />
+    <None Include="wwwroot\img\adidas\bravada2.jpg" />
+    <None Include="wwwroot\img\adidas\bravada3.jpg" />
+    <None Include="wwwroot\img\adidas\breaknet.jpg" />
+    <None Include="wwwroot\img\adidas\breaknet2.jpg" />
+    <None Include="wwwroot\img\adidas\breaknet3.jpg" />
+    <None Include="wwwroot\img\adidas\grandcourt.jpg" />
+    <None Include="wwwroot\img\adidas\grandcourt2.jpg" />
+    <None Include="wwwroot\img\adidas\grandcourt3.jpg" />
+    <None Include="wwwroot\img\adidas\nizza.jpg" />
+    <None Include="wwwroot\img\adidas\nizza2.jpg" />
+    <None Include="wwwroot\img\adidas\nizza3.jpg" />
+    <None Include="wwwroot\img\adidas\orders-icon.jpg" />
+    <None Include="wwwroot\img\adidas\person-icon.PNG" />
+    <None Include="wwwroot\img\adidas\shirt-icon.png" />
+    <None Include="wwwroot\img\background.jpg" />
+    <None Include="wwwroot\img\background1.jpg" />
+    <None Include="wwwroot\img\camera.jpg" />
+    <None Include="wwwroot\img\cannon_eos.jpg" />
+    <None Include="wwwroot\img\charles.jpg" />
+    <None Include="wwwroot\img\cover.jpg" />
+    <None Include="wwwroot\img\favreleuba.jpg" />
+    <None Include="wwwroot\img\hang-chinh-hang-adidas-solar-hu-glide-boost-pharrell-chinese-new-year-v-2021-ee8701.jpeg" />
+    <None Include="wwwroot\img\hang-chinh-hang-adidas-x9000l2-black-2021-eh0030.jpeg" />
+    <None Include="wwwroot\img\hang-chinh-hang-newbalance-abzorb-828-white-grey-logo-2021-mi828cb.jpeg" />
+    <None Include="wwwroot\img\hang-chinh-hang-nike-air-max-90-worldwide-white-gold-2021-da1342-170.jpeg" />
+    <None Include="wwwroot\img\hang-chinh-hang-nike-dunk-low-disrupt-white-gym-red-v-2021-ck6654-101 %281%29.jpeg" />
+    <None Include="wwwroot\img\hang-chinh-hang-nike-dunk-low-disrupt-white-gym-red-v-2021-ck6654-101 %281%29_1.jpeg" />
+    <None Include="wwwroot\img\hang-chinh-hang-nike-dunk-low-disrupt-white-gym-red-v-2021-ck6654-101 %282%29.jpeg" />
+    <None Include="wwwroot\img\hang-chinh-hang-nike-dunk-low-disrupt-white-gym-red-v-2021-ck6654-101 %282%29_1.jpeg" />
+    <None Include="wwwroot\img\hang-chinh-hang-nike-dunk-low-disrupt-white-gym-red-v-2021-ck6654-101 %283%29.jpeg" />
+    <None Include="wwwroot\img\hang-chinh-hang-nike-dunk-low-disrupt-white-gym-red-v-2021-ck6654-101 %283%29_1.jpeg" />
+    <None Include="wwwroot\img\hang-chinh-hang-nike-dunk-low-disrupt-white-gym-red-v-2021-ck6654-101.jpeg" />
+    <None Include="wwwroot\img\hiemco-550k-tk-hang-chinh-hang-nike-air-force-1-low-white-2021-dd8959-100.jpeg" />
+    <None Include="wwwroot\img\hmt.JPG" />
+    <None Include="wwwroot\img\HXR.jpg" />
+    <None Include="wwwroot\img\index-adidas.jpg" />
+    <None Include="wwwroot\img\index-bg.jpg" />
+    <None Include="wwwroot\img\index-nike.jpg" />
+    <None Include="wwwroot\img\index-puma.jpg" />
+    <None Include="wwwroot\img\intro-bg_1.jpg" />
+    <None Include="wwwroot\img\lifestyleStore.png" />
+    <None Include="wwwroot\img\logoshop.png" />
+    <None Include="wwwroot\img\nike\airforce.jpg" />
+    <None Include="wwwroot\img\nike\airforce2.jpg" />
+    <None Include="wwwroot\img\nike\airforce3.jpg" />
+    <None Include="wwwroot\img\nike\airmax270%282%29.jpg" />
+    <None Include="wwwroot\img\nike\airmax270%283%29.jpg" />
+    <None Include="wwwroot\img\nike\airmax270.jpg" />
+    <None Include="wwwroot\img\nike\airzoompegasus.jpg" />
+    <None Include="wwwroot\img\nike\airzoompegasus2.jpg" />
+    <None Include="wwwroot\img\nike\airzoompegasus3.jpg" />
+    <None Include="wwwroot\img\nike\jordan1retro.jpg" />
+    <None Include="wwwroot\img\nike\jordan1retro2.jpg" />
+    <None Include="wwwroot\img\nike\jordan1retro3.jpg" />
+    <None Include="wwwroot\img\nike\jordanorange.jpg" />
+    <None Include="wwwroot\img\nike\jordanorange2.jpg" />
+    <None Include="wwwroot\img\nike\jordanorange3.jpg" />
+    <None Include="wwwroot\img\olympus.jpg" />
+    <None Include="wwwroot\img\pink.jpg" />
+    <None Include="wwwroot\img\puma\1e0df7dd4fc6cee15a8a1c898f7b80f3.png" />
+    <None Include="wwwroot\img\puma\64454936_p0_master1200.jpg" />
+    <None Include="wwwroot\img\puma\68296699_p0.png" />
+    <None Include="wwwroot\img\puma\75321273_p0.jpg" />
+    <None Include="wwwroot\img\puma\88544119_p0.png" />
+    <None Include="wwwroot\img\puma\carson.jpg" />
+    <None Include="wwwroot\img\puma\carson2.jpg" />
+    <None Include="wwwroot\img\puma\carson3.jpg" />
+    <None Include="wwwroot\img\puma\ferrari.jpg" />
+    <None Include="wwwroot\img\puma\ferrari2.jpg" />
+    <None Include="wwwroot\img\puma\ferrari3.jpg" />
+    <None Include="wwwroot\img\puma\menenzo.jpg" />
+    <None Include="wwwroot\img\puma\menenzo2.jpg" />
+    <None Include="wwwroot\img\puma\menenzo3.jpg" />
+    <None Include="wwwroot\img\puma\suede.jpg" />
+    <None Include="wwwroot\img\puma\suede2.jpg" />
+    <None Include="wwwroot\img\puma\suede3.jpg" />
+    <None Include="wwwroot\img\raymond.jpg" />
+    <None Include="wwwroot\img\shirt.jpg" />
+    <None Include="wwwroot\img\sony_dslr.jpeg" />
+    <None Include="wwwroot\img\sony_dslr2.jpeg" />
+    <None Include="wwwroot\img\Thumbs.db" />
+    <None Include="wwwroot\img\titan201.jpg" />
+    <None Include="wwwroot\img\titan301.jpg" />
+    <None Include="wwwroot\img\watch.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Blazored.LocalStorage" Version="4.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="6.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.3" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\BlazorEcommerce.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

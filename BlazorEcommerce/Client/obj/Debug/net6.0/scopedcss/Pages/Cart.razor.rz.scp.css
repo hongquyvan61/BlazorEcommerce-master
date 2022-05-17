@@ -1,0 +1,42 @@
+.container[b-3b5rf2ockk] {
+    display: flex;
+    padding: 10px;
+}
+
+.image-wrapper[b-3b5rf2ockk] {
+    width: 150px;
+    text-align: center;
+}
+
+.image[b-3b5rf2ockk] {
+    max-width: 150px;
+    max-height: 150px;
+    padding: 10px;
+}
+
+.name[b-3b5rf2ockk] {
+    flex-grow: 1;
+    padding: 10px;
+}
+
+.message[b-3b5rf2ockk] {
+    text-decoration: underline;
+}
+
+.cart-product-price[b-3b5rf2ockk] {
+    font-weight: bold;
+    font-size: 24px;
+    text-align: right;
+}
+
+.btn-danger[b-3b5rf2ockk] {
+    transition: transform .3s;
+}
+
+.btn-danger:hover[b-3b5rf2ockk] {
+    transform: scale(1.2);
+}
+
+.input-quantity[b-3b5rf2ockk] {
+    width: 70px;
+}
